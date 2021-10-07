@@ -1,3 +1,9 @@
+.search-container {
+  background-color: rgba(0, 0, 0, 0.844);
+  text-align: center;
+  line-height: 40px;
+}
+
 .shop-container {
   display: grid;
   grid-template-columns: 3fr 1fr;
