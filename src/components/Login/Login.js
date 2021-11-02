@@ -4,18 +4,21 @@ import useAuth from "../../hooks/useAuth";
 import "./Login.css";
 
 const Login = () => {
-  const { singInUsingGoogle } = useAuth();
+  const { singInUsingGoogle, setUser } = useAuth();
 
   // redirect to the initial page after login
-  const location = useLocation();
   const history = useHistory();
+  const location = useLocation();
   // if no history found will go to home
   const redirect_url = location.state?.from || "/shop";
 
   const handleGoogleLogin = () => {
-    singInUsingGoogle().then((result) => {
-      history.push(redirect_url);
-    });
+    singInUsingGoogle()
+      .then((result) => {
+        setUser(result.user);
+        history.push(redirect_url);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (

@@ -13,6 +13,7 @@ const Header = () => {
         <NavLink to="/shop">Shop</NavLink>
         <NavLink to="/review">Order Review</NavLink>
         <NavLink to="/inventory">Manage Inventory</NavLink>
+        {user.email && <NavLink to="/orders">My Orders</NavLink>}
         {user.email && (
           <span style={{ color: "white" }}> {user.displayName} </span>
         )}
